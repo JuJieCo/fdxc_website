@@ -1,0 +1,366 @@
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<include file="struts-default.xml" />
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="defaultPackage"  namespace="/"  extends="struts-default">
+	<interceptors>
+		<!--配置自定义的拦截器-->
+		<interceptor name="fileUpload" class="org.apache.struts2.interceptor.FileUploadInterceptor"/>
+		<interceptor name="authority" class="com.jinyu.fdxc.model.utils.AuthorityInterceptor" />
+		<interceptor name="encode" class="com.jinyu.fdxc.model.utils.EncodeInterceptor" />
+	    <!-- 拦截器栈 -->  
+		<interceptor-stack name="mydefault">
+			<interceptor-ref name="defaultStack"/>
+			<interceptor-ref name="token">
+				<param name="excludeMethods">login,logout,fileUpload,query*,find*,modify*,delete*,show*</param>
+			</interceptor-ref>
+			<interceptor-ref name="authority"/>  
+			<interceptor-ref name="encode"/>
+		</interceptor-stack>
+	</interceptors> 
+	<default-interceptor-ref name="mydefault" />
+		
+	<!--定义全局Result-->
+	<global-results>
+		<result name="login">/page/admin/login/login_proxy.jsp</result>
+		<result name="invalid.token">/error.jsp</result>
+	</global-results>
+	
+	
+	<!-- 网站主页 -->
+	<action name="indexAction" class="com.jinyu.fdxc.struts.action.IndexAction" >
+		<result name="indexpage">/index.jsp</result> 
+		
+		<result name="xwlist">/page/main/xinwen/list.jsp</result> 
+		<result name="xwshow">/page/main/xinwen/contex.jsp</result>
+		
+		<result name="zzjglist">/page/main/zzjg/list.jsp</result>
+		<result name="zzjgshow">/page/main/zzjg/contex.jsp</result>
+		
+		<result name="bjznlist">/page/main/bjzn/list.jsp</result>
+		<result name="bjznshow">/page/main/bjzn/contex.jsp</result>
+		
+		<result name="hdrylist">/page/main/hdry/list.jsp</result>
+		<result name="hdryshow">/page/main/hdry/contex.jsp</result>
+		
+		<result name="dsjylist">/page/main/dsjy/list.jsp</result>
+		<result name="dsjyshow">/page/main/dsjy/contex.jsp</result>
+		
+		<result name="lxfslist">/page/main/lxfs/list.jsp</result>
+		<result name="lxfsshow">/page/main/lxfs/contex.jsp</result>
+		
+		<result name="gkfwlist">/page/main/gkfw/list.jsp</result>
+		<result name="gkfwshow">/page/main/gkfw/contex.jsp</result>
+		
+		<result name="ldcylist">/page/main/ldcy/list.jsp</result>
+		<result name="ldcyshow">/page/main/ldcy/contex.jsp</result>
+		
+		<result name="rsxxlist">/page/main/rsxx/list.jsp</result>
+		<result name="rsxxshow">/page/main/rsxx/contex.jsp</result>
+		
+		<result name="fzghlist">/page/main/fzgh/list.jsp</result>
+		<result name="fzghshow">/page/main/fzgh/contex.jsp</result>
+		
+		<result name="ndjhlist">/page/main/ndjh/list.jsp</result>
+		<result name="ndjhshow">/page/main/ndjh/contex.jsp</result>
+		
+		<result name="wjfblist">/page/main/wjfb/list.jsp</result>
+		<result name="wjfbshow">/page/main/wjfb/contex.jsp</result>
+		
+		<result name="tzgglist">/page/main/tzgg/list.jsp</result>
+		<result name="tzggshow">/page/main/tzgg/contex.jsp</result>
+		
+		<result name="zcfglist">/page/main/zcfg/list.jsp</result>
+		<result name="zcfgshow">/page/main/zcfg/contex.jsp</result>
+		
+		<result name="rdgzlist">/page/main/rdgz/list.jsp</result>
+		<result name="rdgzshow">/page/main/rdgz/contex.jsp</result>
+		
+		<result name="bsznlist">/page/main/bszn/list.jsp</result>
+		<result name="bsznshow">/page/main/bszn/contex.jsp</result>
+		
+		<result name="xzzqlist">/page/main/xzzq/list.jsp</result>
+		<result name="xzzqshow">/page/main/xzzq/contex.jsp</result>
+		
+		<result name="jbfclist">/page/main/jbfc/list.jsp</result>
+		<result name="jbfcshow">/page/main/jbfc/contex.jsp</result>
+		
+		<result name="fdyxlist">/page/main/fdyx/list.jsp</result>
+		<result name="fdyxshow">/page/main/fdyx/contex.jsp</result>
+	</action>
+	
+		<!-- 人口计生主页 -->
+	<action name="indexRkjsAction" class="com.jinyu.fdxc.struts.action.IndexRkjsAction" >
+		<result name="indexpage">/indexRkjs.jsp</result> 
+		
+		<result name="ywlist">/page/rkjs/yaowen/list.jsp</result> 
+		<result name="ywshow">/page/rkjs/yaowen/contex.jsp</result>
+		
+		<result name="tplist">/page/rkjs/tupian/list.jsp</result> 
+		<result name="tpshow">/page/rkjs/tupian/contex.jsp</result>
+		
+		<result name="tzgglist">/page/rkjs/tzgg/list.jsp</result> 
+		<result name="tzggshow">/page/rkjs/tzgg/contex.jsp</result>
+		
+		<result name="wjfblist">/page/rkjs/wjfb/list.jsp</result>
+		<result name="wjfbshow">/page/rkjs/wjfb/contex.jsp</result>
+		
+		<result name="zcfglist">/page/rkjs/zcfg/list.jsp</result>
+		<result name="zcfgshow">/page/rkjs/zcfg/contex.jsp</result>
+		
+		<result name="bsznlist">/page/rkjs/bszn/list.jsp</result>
+		<result name="bsznshow">/page/rkjs/bszn/contex.jsp</result>
+		
+		<result name="rdgzlist">/page/rkjs/rdgz/list.jsp</result>
+		<result name="rdgzshow">/page/rkjs/rdgz/contex.jsp</result>
+		
+		<result name="lxfslist">/page/rkjs/lxfs/list.jsp</result>
+		<result name="lxfsshow">/page/rkjs/lxfs/contex.jsp</result>
+		
+		<result name="znbmlist">/page/rkjs/znbm/list.jsp</result>
+		<result name="bgsshow">/page/rkjs/znbm/bgs.jsp</result>
+		<result name="ywkshow">/page/rkjs/znbm/ywk.jsp</result>
+		<result name="fwzshow">/page/rkjs/znbm/fwz.jsp</result>
+	</action>
+	
+	
+		<!-- 医疗卫生主页 -->
+	<action name="indexYlwsAction" class="com.jinyu.fdxc.struts.action.IndexYlwsAction" >
+		<result name="indexpage">/indexYlws.jsp</result> 
+		
+		<result name="ywlist">/page/ylws/yaowen/list.jsp</result> 
+		<result name="ywshow">/page/ylws/yaowen/contex.jsp</result>
+		
+		<result name="tplist">/page/ylws/tupian/list.jsp</result> 
+		<result name="tpshow">/page/ylws/tupian/contex.jsp</result>
+		
+		<result name="tzgglist">/page/ylws/tzgg/list.jsp</result> 
+		<result name="tzggshow">/page/ylws/tzgg/contex.jsp</result>
+		
+		<result name="wjfblist">/page/ylws/wjfb/list.jsp</result>
+		<result name="wjfbshow">/page/ylws/wjfb/contex.jsp</result>
+		
+		<result name="zcfglist">/page/ylws/zcfg/list.jsp</result>
+		<result name="zcfgshow">/page/ylws/zcfg/contex.jsp</result>
+		
+		<result name="bsznlist">/page/ylws/bszn/list.jsp</result>
+		<result name="bsznshow">/page/ylws/bszn/contex.jsp</result>
+		
+		<result name="rdgzlist">/page/ylws/rdgz/list.jsp</result>
+		<result name="rdgzshow">/page/ylws/rdgz/contex.jsp</result>
+		
+		<result name="lxfslist">/page/ylws/lxfs/list.jsp</result>
+		<result name="lxfsshow">/page/ylws/lxfs/contex.jsp</result>
+		
+		<result name="znbmlist">/page/ylws/znbm/list.jsp</result>
+		<result name="bgsshow">/page/ylws/znbm/bgs.jsp</result>
+		<result name="ywkshow">/page/ylws/znbm/ywk.jsp</result>
+		<result name="fwzshow">/page/ylws/znbm/fwz.jsp</result>
+		</action>
+		
+		
+		
+		<!-- 文体旅游主页 -->
+	<action name="indexWtlyAction" class="com.jinyu.fdxc.struts.action.IndexWtlyAction" >
+		<result name="indexpage">/indexWtly.jsp</result> 
+		
+		<result name="ywlist">/page/wtly/yaowen/list.jsp</result> 
+		<result name="ywshow">/page/wtly/yaowen/contex.jsp</result>
+		
+		<result name="tplist">/page/wtly/tupian/list.jsp</result> 
+		<result name="tpshow">/page/wtly/tupian/contex.jsp</result>
+		
+		<result name="tzgglist">/page/wtly/tzgg/list.jsp</result> 
+		<result name="tzggshow">/page/wtly/tzgg/contex.jsp</result>
+		
+		<result name="whmblist">/page/wtly/whmb/list.jsp</result>
+		<result name="whmbshow">/page/wtly/whmb/contex.jsp</result>
+		
+		<result name="zcfglist">/page/wtly/zcfg/list.jsp</result>
+		<result name="zcfgshow">/page/wtly/zcfg/contex.jsp</result>
+		
+		<result name="bsznlist">/page/wtly/bszn/list.jsp</result>
+		<result name="bsznshow">/page/wtly/bszn/contex.jsp</result>
+		
+		 
+		
+		<result name="lxfslist">/page/wtly/lxfs/list.jsp</result>
+		<result name="lxfsshow">/page/wtly/lxfs/contex.jsp</result>
+		
+		<result name="znbmlist">/page/wtly/znbm/list.jsp</result>
+		<result name="bgsshow">/page/wtly/znbm/bgs.jsp</result>
+		<result name="ywkshow">/page/wtly/znbm/ywk.jsp</result>
+		<result name="fwzshow">/page/wtly/znbm/fwz.jsp</result>
+	</action>
+	
+	
+		<!-- 用户管理 -->
+	<action name="loginAction" class="com.jinyu.fdxc.struts.action.LoginAction">
+		<result name="showAdminLogin">/page/admin/login/login.jsp</result>
+		<result name="index">/page/admin/frame/frame.jsp</result>
+		<result name="logout">/index.jsp</result>
+	</action>
+	
+	<!-- 用户管理 -->
+		<action name="sysUserAction" class="com.jinyu.fdxc.struts.action.SysUserAction">
+			<result name="list">/page/admin/user/list.jsp</result>
+			<result name="modify">/page/admin/user/modify.jsp</result>
+			<result name="show">/page/admin/user/show.jsp</result>
+		</action>
+	
+	<!-- 新闻管理 -->
+		<action name="xinWenAction" class="com.jinyu.fdxc.struts.action.XinWenAction">
+			<result name="list">/page/admin/xinwen/list.jsp</result>
+			<result name="modify">/page/admin/xinwen/modify.jsp</result>
+			<result name="show">/page/admin/xinwen/show.jsp</result>
+		</action>
+		
+	<!-- 组织机构 -->
+		<action name="zzjgAction" class="com.jinyu.fdxc.struts.action.ZzjgAction">
+			<result name="list">/page/admin/zzjg/list.jsp</result>
+			<result name="modify">/page/admin/zzjg/modify.jsp</result>
+			<result name="show">/page/admin/zzjg/show.jsp</result>
+		</action>
+		
+		<!-- 本局职能 -->
+		<action name="bjznAction" class="com.jinyu.fdxc.struts.action.BjznAction">
+			<result name="list">/page/admin/bjzn/list.jsp</result>
+			<result name="modify">/page/admin/bjzn/modify.jsp</result>
+			<result name="show">/page/admin/bjzn/show.jsp</result>
+		</action>
+		
+		
+			<!-- 获得荣誉 -->
+		<action name="hdryAction" class="com.jinyu.fdxc.struts.action.HdryAction">
+			<result name="list">/page/admin/hdry/list.jsp</result>
+			<result name="modify">/page/admin/hdry/modify.jsp</result>
+			<result name="show">/page/admin/hdry/show.jsp</result>
+		</action>
+		
+		
+			<!-- 大事记要 -->
+		<action name="dsjyAction" class="com.jinyu.fdxc.struts.action.DsjyAction">
+			<result name="list">/page/admin/dsjy/list.jsp</result>
+			<result name="modify">/page/admin/dsjy/modify.jsp</result>
+			<result name="show">/page/admin/dsjy/show.jsp</result>
+		</action>
+		
+		
+			<!-- 联系方式 -->
+		<action name="lxfsAction" class="com.jinyu.fdxc.struts.action.LxfsAction">
+			<result name="list">/page/admin/lxfs/list.jsp</result>
+			<result name="modify">/page/admin/lxfs/modify.jsp</result>
+			<result name="show">/page/admin/lxfs/show.jsp</result>
+		</action>
+		
+		<!-- 公开范围 -->
+		<action name="gkfwAction" class="com.jinyu.fdxc.struts.action.GkfwAction">
+			<result name="list">/page/admin/gkfw/list.jsp</result>
+			<result name="modify">/page/admin/gkfw/modify.jsp</result>
+			<result name="show">/page/admin/gkfw/show.jsp</result>
+		</action>
+		
+		<!-- 领导成员 -->
+		<action name="ldcyAction" class="com.jinyu.fdxc.struts.action.LdcyAction">
+			<result name="list">/page/admin/ldcy/list.jsp</result>
+			<result name="modify">/page/admin/ldcy/modify.jsp</result>
+			<result name="show">/page/admin/ldcy/show.jsp</result>
+		</action>
+		
+		
+		<!-- 人事信息 -->
+		<action name="rsxxAction" class="com.jinyu.fdxc.struts.action.RsxxAction">
+			<result name="list">/page/admin/rsxx/list.jsp</result>
+			<result name="modify">/page/admin/rsxx/modify.jsp</result>
+			<result name="show">/page/admin/rsxx/show.jsp</result>
+		</action>
+		
+		
+		<!-- 发展规划 -->
+		<action name="fzghAction" class="com.jinyu.fdxc.struts.action.FzghAction">
+			<result name="list">/page/admin/fzgh/list.jsp</result>
+			<result name="modify">/page/admin/fzgh/modify.jsp</result>
+			<result name="show">/page/admin/fzgh/show.jsp</result>
+		</action>
+		
+		<!-- 年度计划 -->
+		<action name="ndjhAction" class="com.jinyu.fdxc.struts.action.NdjhAction">
+			<result name="list">/page/admin/ndjh/list.jsp</result>
+			<result name="modify">/page/admin/ndjh/modify.jsp</result>
+			<result name="show">/page/admin/ndjh/show.jsp</result>
+		</action>
+				
+		<!-- 文件发布 -->
+		<action name="wjfbAction" class="com.jinyu.fdxc.struts.action.WjfbAction">
+			<result name="list">/page/admin/wjfb/list.jsp</result>
+			<result name="modify">/page/admin/wjfb/modify.jsp</result>
+			<result name="show">/page/admin/wjfb/show.jsp</result>
+		</action>
+		
+			<!-- 通知公告 -->
+		<action name="tzggAction" class="com.jinyu.fdxc.struts.action.TzggAction">
+			<result name="list">/page/admin/tzgg/list.jsp</result>
+			<result name="modify">/page/admin/tzgg/modify.jsp</result>
+			<result name="show">/page/admin/tzgg/show.jsp</result>
+		</action>
+		
+		<!-- 政策法规 -->
+		<action name="zcfgAction" class="com.jinyu.fdxc.struts.action.ZcfgAction">
+			<result name="list">/page/admin/zcfg/list.jsp</result>
+			<result name="modify">/page/admin/zcfg/modify.jsp</result>
+			<result name="show">/page/admin/zcfg/show.jsp</result>
+		</action>
+		
+		<!-- 热点关注 -->
+		<action name="rdgzAction" class="com.jinyu.fdxc.struts.action.RdgzAction">
+			<result name="list">/page/admin/rdgz/list.jsp</result>
+			<result name="modify">/page/admin/rdgz/modify.jsp</result>
+			<result name="show">/page/admin/rdgz/show.jsp</result>
+		</action>
+		
+		<!-- 办事指南 -->
+		<action name="bsznAction" class="com.jinyu.fdxc.struts.action.BsznAction">
+			<result name="list">/page/admin/bszn/list.jsp</result>
+			<result name="modify">/page/admin/bszn/modify.jsp</result>
+			<result name="show">/page/admin/bszn/show.jsp</result>
+		</action>
+	
+		<!--下载专区 -->
+		<action name="xzzqAction" class="com.jinyu.fdxc.struts.action.XzzqAction">
+			<result name="list">/page/admin/xzzq/list.jsp</result>
+			<result name="modify">/page/admin/xzzq/modify.jsp</result>
+			<result name="show">/page/admin/xzzq/show.jsp</result>
+		</action>
+		
+		<!--街办风采 -->
+		<action name="jbfcAction" class="com.jinyu.fdxc.struts.action.JbfcAction">
+			<result name="list">/page/admin/jbfc/list.jsp</result>
+			<result name="modify">/page/admin/jbfc/modify.jsp</result>
+			<result name="show">/page/admin/jbfc/show.jsp</result>
+		</action>
+		
+		<!--沣东印象 -->
+		<action name="fdyxAction" class="com.jinyu.fdxc.struts.action.FdyxAction">
+			<result name="list">/page/admin/fdyx/list.jsp</result>
+			<result name="modify">/page/admin/fdyx/modify.jsp</result>
+			<result name="show">/page/admin/fdyx/show.jsp</result>
+		</action>
+		
+			<!-- 职能部门 -->
+		<action name="znbmAction" class="com.jinyu.fdxc.struts.action.ZnbmAction">
+			<result name="list">/page/admin/znbm/list.jsp</result>
+			<result name="modify">/page/admin/znbm/modify.jsp</result>
+			<result name="show">/page/admin/znbm/show.jsp</result>
+		</action>
+		
+		<!-- 文化漫步 -->
+		<action name="whmbAction" class="com.jinyu.fdxc.struts.action.WhmbAction">
+			<result name="list">/page/admin/whmb/list.jsp</result>
+			<result name="modify">/page/admin/whmb/modify.jsp</result>
+			<result name="show">/page/admin/whmb/show.jsp</result>
+		</action>
+	</package>
+	
+</struts>

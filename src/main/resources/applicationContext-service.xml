@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd    
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd    
+    http://www.springframework.org/schema/aop    
+    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+    http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+   <bean id="indexService" class="com.jinyu.fdxc.model.service.IndexService">
+		<property name="xinWenDAO" ref="xinWenDAO"></property>
+		<property name="zzjgDAO" ref="zzjgDAO"></property>
+		<property name="bjznDAO" ref="bjznDAO"></property>
+		<property name="hdryDAO" ref="hdryDAO"></property>
+		<property name="dsjyDAO" ref="dsjyDAO"></property>
+		<property name="lxfsDAO" ref="lxfsDAO"></property>
+		<property name="gkfwDAO" ref="gkfwDAO"></property>
+		<property name="ldcyDAO" ref="ldcyDAO"></property>
+		<property name="rsxxDAO" ref="rsxxDAO"></property>
+		<property name="fzghDAO" ref="fzghDAO"></property>
+		<property name="ndjhDAO" ref="ndjhDAO"></property>
+		<property name="wjfbDAO" ref="wjfbDAO"></property>
+		<property name="tzggDAO" ref="tzggDAO"></property>
+		<property name="zcfgDAO" ref="zcfgDAO"></property>
+		<property name="rdgzDAO" ref="rdgzDAO"></property>
+		<property name="bsznDAO" ref="bsznDAO"></property>
+		<property name="xzzqDAO" ref="xzzqDAO"></property>
+		<property name="jbfcDAO" ref="jbfcDAO"></property>
+		<property name="fdyxDAO" ref="fdyxDAO"></property> 
+	</bean>
+	
+	<bean id="indexRkjsService" class="com.jinyu.fdxc.model.service.IndexRkjsService">
+		<property name="xinWenDAO" ref="xinWenDAO"></property>
+		<property name="tzggDAO" ref="tzggDAO"></property>
+		<property name="wjfbDAO" ref="wjfbDAO"></property>
+		<property name="zcfgDAO" ref="zcfgDAO"></property>
+		<property name="bsznDAO" ref="bsznDAO"></property>
+		<property name="rdgzDAO" ref="rdgzDAO"></property>
+		<property name="lxfsDAO" ref="lxfsDAO"></property>
+		<property name="znbmDAO" ref="znbmDAO"></property>
+	</bean>
+	
+	<bean id="indexYlwsService" class="com.jinyu.fdxc.model.service.IndexYlwsService">
+		<property name="xinWenDAO" ref="xinWenDAO"></property>
+		<property name="tzggDAO" ref="tzggDAO"></property>
+		<property name="wjfbDAO" ref="wjfbDAO"></property>
+		<property name="zcfgDAO" ref="zcfgDAO"></property>
+		<property name="bsznDAO" ref="bsznDAO"></property>
+		<property name="rdgzDAO" ref="rdgzDAO"></property>
+		<property name="lxfsDAO" ref="lxfsDAO"></property>
+		<property name="znbmDAO" ref="znbmDAO"></property>
+	</bean>
+	
+	
+	<bean id="indexWtlyService" class="com.jinyu.fdxc.model.service.IndexWtlyService">
+		<property name="xinWenDAO" ref="xinWenDAO"></property>
+		<property name="tzggDAO" ref="tzggDAO"></property>
+		<property name="whmbDAO" ref="whmbDAO"></property>
+		<property name="zcfgDAO" ref="zcfgDAO"></property>
+		<property name="bsznDAO" ref="bsznDAO"></property>
+		 <property name="touPiaoDAO" ref="touPiaoDAO"></property>
+		<property name="lxfsDAO" ref="lxfsDAO"></property>
+		<property name="znbmDAO" ref="znbmDAO"></property>
+	</bean>
+	
+	
+	<bean id="loginService" class="com.jinyu.fdxc.model.service.LoginService">
+		<property name="loginDAO" ref="loginDAO"></property>
+	</bean>
+	
+	<bean id="sysUserService" class="com.jinyu.fdxc.model.service.SysUserService">
+		<property name="sysUserDAO" ref="sysUserDAO"></property>
+	</bean>
+	
+	<bean id="xinWenService" class="com.jinyu.fdxc.model.service.XinWenService">
+		<property name="xinWenDAO" ref="xinWenDAO"></property>
+	</bean>
+	
+	<bean id="zzjgService" class="com.jinyu.fdxc.model.service.ZzjgService">
+		<property name="zzjgDAO" ref="zzjgDAO"></property>
+	</bean>
+	
+	<bean id="bjznService" class="com.jinyu.fdxc.model.service.BjznService">
+		<property name="bjznDAO" ref="bjznDAO"></property>
+	</bean>
+	
+	<bean id="hdryService" class="com.jinyu.fdxc.model.service.HdryService">
+		<property name="hdryDAO" ref="hdryDAO"></property>
+	</bean>
+	
+	<bean id="dsjyService" class="com.jinyu.fdxc.model.service.DsjyService">
+		<property name="dsjyDAO" ref="dsjyDAO"></property>
+	</bean>
+	
+	<bean id="lxfsService" class="com.jinyu.fdxc.model.service.LxfsService">
+		<property name="lxfsDAO" ref="lxfsDAO"></property>
+	</bean>
+	
+	<bean id="gkfwService" class="com.jinyu.fdxc.model.service.GkfwService">
+		<property name="gkfwDAO" ref="gkfwDAO"></property>
+	</bean>
+	
+	<bean id="ldcyService" class="com.jinyu.fdxc.model.service.LdcyService">
+		<property name="ldcyDAO" ref="ldcyDAO"></property>
+	</bean>
+	
+	<bean id="rsxxService" class="com.jinyu.fdxc.model.service.RsxxService">
+		<property name="rsxxDAO" ref="rsxxDAO"></property>
+	</bean>
+	
+	<bean id="fzghService" class="com.jinyu.fdxc.model.service.FzghService">
+		<property name="fzghDAO" ref="fzghDAO"></property>
+	</bean>
+	
+	<bean id="ndjhService" class="com.jinyu.fdxc.model.service.NdjhService">
+		<property name="ndjhDAO" ref="ndjhDAO"></property>
+	</bean>
+	
+	<bean id="wjfbService" class="com.jinyu.fdxc.model.service.WjfbService">
+		<property name="wjfbDAO" ref="wjfbDAO"></property>
+	</bean>
+	
+	<bean id="tzggService" class="com.jinyu.fdxc.model.service.TzggService">
+		<property name="tzggDAO" ref="tzggDAO"></property>
+	</bean>
+	
+	<bean id="zcfgService" class="com.jinyu.fdxc.model.service.ZcfgService">
+		<property name="zcfgDAO" ref="zcfgDAO"></property>
+	</bean>
+	
+	<bean id="rdgzService" class="com.jinyu.fdxc.model.service.RdgzService">
+		<property name="rdgzDAO" ref="rdgzDAO"></property>
+	</bean>
+	
+	<bean id="bsznService" class="com.jinyu.fdxc.model.service.BsznService">
+		<property name="bsznDAO" ref="bsznDAO"></property>
+	</bean>
+	
+	<bean id="xzzqService" class="com.jinyu.fdxc.model.service.XzzqService">
+		<property name="xzzqDAO" ref="xzzqDAO"></property>
+	</bean>
+	
+	<bean id="jbfcService" class="com.jinyu.fdxc.model.service.JbfcService">
+		<property name="jbfcDAO" ref="jbfcDAO"></property>
+	</bean>
+	
+	<bean id="fdyxService" class="com.jinyu.fdxc.model.service.FdyxService">
+		<property name="fdyxDAO" ref="fdyxDAO"></property>
+	</bean>
+	
+	<bean id="znbmService" class="com.jinyu.fdxc.model.service.ZnbmService">
+		<property name="znbmDAO" ref="znbmDAO"></property>
+	</bean>
+	
+	<bean id="whmbService" class="com.jinyu.fdxc.model.service.WhmbService">
+		<property name="whmbDAO" ref="whmbDAO"></property>
+	</bean>
+	  
+</beans>
